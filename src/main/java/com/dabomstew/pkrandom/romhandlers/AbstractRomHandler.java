@@ -2324,34 +2324,38 @@ public abstract class AbstractRomHandler implements RomHandler {
             if (pk.getGuaranteedHeldItem() != -1) {
                 // Guaranteed held items are supported.
                 if (pk.getGuaranteedHeldItem() > 0) {
-                    // Currently have a guaranteed item
-                    if (decision < 0.9) {
-                        // Stay as guaranteed
-                        canHaveDarkGrass = false;
-                        pk.setGuaranteedHeldItem(possibleItems.randomItem(this.random));
-                    } else {
-                        // Change to 25% or 55% chance
-                        pk.setGuaranteedHeldItem(0);
-                        pk.setCommonHeldItem(possibleItems.randomItem(this.random));
-                        do {
-                            pk.setRareHeldItem(possibleItems.randomItem(this.random));
-                        } while (pk.getRareHeldItem() == pk.getCommonHeldItem());
-                    }
+                    // Stay as guaranteed
+                    canHaveDarkGrass = false;
+                    pk.setGuaranteedHeldItem(possibleItems.randomItem(this.random));
+                    // // Currently have a guaranteed item
+                    // if (decision < 0.9) {
+                    //     // Stay as guaranteed
+                    //     canHaveDarkGrass = false;
+                    //     pk.setGuaranteedHeldItem(possibleItems.randomItem(this.random));
+                    // } else {
+                    //     // Change to 25% or 55% chance
+                    //     pk.setGuaranteedHeldItem(0);
+                    //     pk.setCommonHeldItem(possibleItems.randomItem(this.random));
+                    //     do {
+                    //         pk.setRareHeldItem(possibleItems.randomItem(this.random));
+                    //     } while (pk.getRareHeldItem() == pk.getCommonHeldItem());
+                    // }
                 } else {
-                    // No guaranteed item atm
+                    // // No guaranteed item atm
+                    // if (decision < 0.5) {
+                    //     // No held item at all
+                    //     pk.setCommonHeldItem(0);
+                    //     pk.setRareHeldItem(0);
+                    // } else if (decision < 0.65) {
+                    //     // Just a rare item
+                    //     pk.setCommonHeldItem(0);
+                    //     pk.setRareHeldItem(possibleItems.randomItem(this.random));
+                    // } else if (decision < 0.8) {
+                    //     // Just a common item
+                    //     pk.setCommonHeldItem(possibleItems.randomItem(this.random));
+                    //     pk.setRareHeldItem(0);
+                    // } else
                     if (decision < 0.5) {
-                        // No held item at all
-                        pk.setCommonHeldItem(0);
-                        pk.setRareHeldItem(0);
-                    } else if (decision < 0.65) {
-                        // Just a rare item
-                        pk.setCommonHeldItem(0);
-                        pk.setRareHeldItem(possibleItems.randomItem(this.random));
-                    } else if (decision < 0.8) {
-                        // Just a common item
-                        pk.setCommonHeldItem(possibleItems.randomItem(this.random));
-                        pk.setRareHeldItem(0);
-                    } else if (decision < 0.95) {
                         // Both a common and rare item
                         pk.setCommonHeldItem(possibleItems.randomItem(this.random));
                         do {
@@ -2366,26 +2370,26 @@ public abstract class AbstractRomHandler implements RomHandler {
                     }
                 }
             } else {
-                // Code for no guaranteed items
-                if (decision < 0.5) {
-                    // No held item at all
-                    pk.setCommonHeldItem(0);
-                    pk.setRareHeldItem(0);
-                } else if (decision < 0.65) {
-                    // Just a rare item
-                    pk.setCommonHeldItem(0);
+                // // Code for no guaranteed items
+                // if (decision < 0.5) {
+                //     // No held item at all
+                //     pk.setCommonHeldItem(0);
+                //     pk.setRareHeldItem(0);
+                // } else if (decision < 0.65) {
+                //     // Just a rare item
+                //     pk.setCommonHeldItem(0);
+                //     pk.setRareHeldItem(possibleItems.randomItem(this.random));
+                // } else if (decision < 0.8) {
+                //     // Just a common item
+                //     pk.setCommonHeldItem(possibleItems.randomItem(this.random));
+                //     pk.setRareHeldItem(0);
+                // } else {
+                // Both a common and rare item
+                pk.setCommonHeldItem(possibleItems.randomItem(this.random));
+                do {
                     pk.setRareHeldItem(possibleItems.randomItem(this.random));
-                } else if (decision < 0.8) {
-                    // Just a common item
-                    pk.setCommonHeldItem(possibleItems.randomItem(this.random));
-                    pk.setRareHeldItem(0);
-                } else {
-                    // Both a common and rare item
-                    pk.setCommonHeldItem(possibleItems.randomItem(this.random));
-                    do {
-                        pk.setRareHeldItem(possibleItems.randomItem(this.random));
-                    } while (pk.getRareHeldItem() == pk.getCommonHeldItem());
-                }
+                } while (pk.getRareHeldItem() == pk.getCommonHeldItem());
+                // }
             }
 
             if (canHaveDarkGrass) {
