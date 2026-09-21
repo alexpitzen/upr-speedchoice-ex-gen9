@@ -2213,11 +2213,12 @@ public class EmeraldEXRomHandler extends AbstractGBRomHandler {
 
         marts.forEach(Mart::resetState);
 
-        int giftPremierBallOffset = (romEntry.getValue("StaticVars") + (EmeraldEXConstants.MART_PROMO_ITEM_INDEX * 2));
-        Collections.shuffle(freeItems, this.random);
-        if (giftPremierBallOffset != 0 && !freeItems.isEmpty()) {
-            writeWord(giftPremierBallOffset, freeItems.get(0));
-        }
+        // Don't randomize premier ball into a random key item...
+        // int giftPremierBallOffset = (romEntry.getValue("StaticVars") + (EmeraldEXConstants.MART_PROMO_ITEM_INDEX * 2));
+        // Collections.shuffle(freeItems, this.random);
+        // if (giftPremierBallOffset != 0 && !freeItems.isEmpty()) {
+        //     writeWord(giftPremierBallOffset, freeItems.get(0));
+        // }
     }
 
     @Override
