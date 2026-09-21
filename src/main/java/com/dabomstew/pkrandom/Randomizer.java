@@ -214,7 +214,7 @@ public class Randomizer {
         }
 
         // Easier evolutions
-        if (settings.isMakeEvolutionsEasier()) {
+        if (settings.isMakeEvolutionsEasier() || true) {
             romHandler.condenseLevelEvolutions(40, 30);
         }
 
