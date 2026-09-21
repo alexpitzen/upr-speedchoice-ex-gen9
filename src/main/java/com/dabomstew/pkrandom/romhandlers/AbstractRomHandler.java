@@ -1563,6 +1563,21 @@ public abstract class AbstractRomHandler implements RomHandler {
             // Replace moves as needed
             for (int i = 0; i < moves.size(); i++) {
 
+                // If a pokemon requires a move to evolve, make sure it learns it
+                // The "reorder damaging moves" setting will put it in a good place
+                if (GlobalConstants.monEvoRequiresMove.containsKey(pkmn.getNumber())) {
+                    int moveNum = GlobalConstants.monEvoRequiresMove.get(pkmn.getNumber());
+
+                    // write it
+                    moves.get(i).setMove(moveNum);
+                    if (i == lv1index) {
+                        // just in case, set this to lv1
+                        moves.get(i).setLevel(1);
+                    }
+                    learnt.add(moveNum);
+                    continue;
+                }
+
                 // should this move be forced damaging?
                 boolean attemptDamaging = i == lv1index || random.nextDouble() < goodDamagingProbability;
 

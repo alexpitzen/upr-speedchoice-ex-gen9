@@ -2,6 +2,8 @@ package com.dabomstew.pkrandom.constants;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import static java.util.Map.entry;
 
 public class GlobalConstants {
 
@@ -64,6 +66,42 @@ public class GlobalConstants {
         309, //teraform zero
         161, //zen mode
         278 //zero to hero
+    );
+
+    // Maps pokemon number to move number
+    public static final Map<Integer, Integer> monEvoRequiresMove = Map.ofEntries(
+        // Ancient Power 	Tangela, Yanma, Piloswine 	Tangrowth, Yanmega, Mamoswine 	Generation IV
+        entry(114, 246),
+        entry(193, 246),
+        entry(221, 246),
+        // Barb Barrage 	Hisuian Qwilfish 	Overqwil 	Generation VIII
+        entry(998, 767),
+        // Double Hit 	Aipom 	Ambipom 	Generation IV
+        entry(190, 458),
+        // Dragon Cheer 	Dipplin 	Hydrapple 	Generation IX
+        entry(1408,841),
+        // Dragon Pulse 	Poipole 	Naganadel 	Generation VII
+        entry(803,406),
+        // Hyper Drill 	Dunsparce 	Dudunsparce 	Generation IX
+        entry(206,813),
+        // Mimic 	Bonsly, Mime Jr. 	Sudowoodo, Mr. Mime 	Generation IV
+        entry(438,102),
+        entry(439,102),
+        // Psyshield Bash 	Stantler 	Wyrdeer 	Generation VIII
+        entry(234,756),
+        // Rage Fist 	Primeape 	Annihilape 	Generation IX
+        entry(57,815),
+        // Rollout 	Lickitung 	Lickilicky 	Generation IV
+        entry(108,205),
+        // Stomp 	Steenee 	Tsareena 	Generation VII
+        entry(762,23),
+        // Taunt 	Clobbopus 	Grapploct 	Generation VIII
+        entry(852,269),
+        // Twin Beam 	Girafarig 	Farigiraf 	Generation IX
+        entry(203,814),
+        // Any Fairy-type move 	Eevee 	Sylveon* 	Generation VI
+        // recoil moves (just use wave crash) - basculin white stripe
+        entry(1091,762)
     );
 
     public static final int WONDER_GUARD_INDEX = 25;
