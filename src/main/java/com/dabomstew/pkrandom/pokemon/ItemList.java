@@ -45,6 +45,19 @@ public class ItemList {
         }
     }
 
+    public void allowSingles(boolean allow, int... indexes) {
+        for (int index : indexes) {
+            items[index] = allow;
+        }
+    }
+
+    public void allowRange(int startIndex, int endIndex, boolean allow) {
+        // endIndex is inclusive
+        for (int i = startIndex; i <= endIndex; i++) {
+            items[i] = allow;
+        }
+    }
+
     public void banRange(int startIndex, int length) {
         for (int i = 0; i < length; i++) {
             items[i + startIndex] = false;

@@ -822,7 +822,7 @@ public class Randomizer {
     }
 
     private void maybeChangeAndLogFieldItems(final PrintStream log, final RomHandler romHandler) {
-        
+
         if(settings.getFieldItemsMod() == Settings.FieldItemsMod.UNCHANGED) {
             log.println("Field Items: Unchanged." + NEWLINE);
         }
@@ -830,7 +830,7 @@ public class Randomizer {
             List<ItemLocation> oldItems = romHandler.getRegularFieldItems();
             List<FieldTM> oldTMs = romHandler.getCurrentFieldTMs();
             String[] itemNames = romHandler.getItemNames();
-            
+
             if (settings.getFieldItemsMod() == Settings.FieldItemsMod.SHUFFLE) {
                 romHandler.shuffleFieldItems();
             } else if (settings.getFieldItemsMod() == Settings.FieldItemsMod.RANDOM) {
@@ -863,32 +863,29 @@ public class Randomizer {
                 }
 
             }
-            
+
             List<ItemLocation> newItems = romHandler.getRegularFieldItems();
             List<FieldTM> newTMs = romHandler.getCurrentFieldTMs();
-            
+
             log.println("--Field Items--");
             Iterator<ItemLocation> niIter = newItems.iterator();
-            
+
             for(ItemLocation loc : oldItems) {
                 ItemLocation newLoc = niIter.next();
                 log.printf("%s: %s => %s", loc.getDescription(), itemNames[loc.getItem()], itemNames[newLoc.getItem()]);
                 log.println();
             }
-            
+
             Iterator<FieldTM> ntIter = newTMs.iterator();
-            
+
             for(FieldTM loc : oldTMs) {
                 FieldTM newLoc = ntIter.next();
                 log.printf("%s: TM%02d => TM%02d", loc.getDescription(), loc.getTm(), newLoc.getTm());
                 log.println();
             }
-            
+
             log.println();
         }
-        
-        
-
     }
 
     private static int addToCV(int checkValue, int... values) {

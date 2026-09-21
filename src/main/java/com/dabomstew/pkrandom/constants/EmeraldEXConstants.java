@@ -308,39 +308,79 @@ public class EmeraldEXConstants {
         allowedItems = new ItemList(833); // TODO: this should come from item count
 
         allowedItems.banSingles(ItemConstants.ITEM_NONE, ItemConstants.RED_ORB, ItemConstants.BLUE_ORB, ItemConstants.TERA_ORB);
-        allowedItems.banRange(ItemConstants.TMS_START, (ItemConstants.TMS_END - ItemConstants.TMS_START) + 1);
-        allowedItems.banRange(ItemConstants.HMS_START, (ItemConstants.HMS_END - ItemConstants.HMS_START) + 1);
-        allowedItems.banRange(ItemConstants.UNUSED_TM_START, (ItemConstants.UNUSED_TM_END - ItemConstants.UNUSED_TM_START) + 1);
-        allowedItems.banRange(ItemConstants.GENERAL_KEY_ITEMS_START, (ItemConstants.GENERAL_KEY_ITEMS_END - ItemConstants.GENERAL_KEY_ITEMS_START) + 1);
-        allowedItems.banRange(ItemConstants.SPEEDCHOICE_START, (ItemConstants.SPEEDCHOICE_END - ItemConstants.SPEEDCHOICE_START) + 1);
+        allowedItems.allowRange(ItemConstants.MEDICINE_START, ItemConstants.MEDICINE_END, false); // don't care about medicine
+        allowedItems.allowSingles(true, ItemConstants.BERRY_JUICE); // berry juice is inside the medicine range
+        allowedItems.allowRange(ItemConstants.SPECIALTIES_START, ItemConstants.SPECIALTIES_END, false); // full heals
+        allowedItems.allowRange(ItemConstants.CANDY_START, ItemConstants.CANDY_END, false); // exp candy
+        allowedItems.allowSingles(false, ItemConstants.DYNAMAX_CANDY);
+        allowedItems.allowRange(ItemConstants.FLUTES_START, ItemConstants.FLUTES_END, false);
+        allowedItems.allowRange(ItemConstants.REPEL_START, ItemConstants.REPEL_END, false);
+        allowedItems.allowSingles(false, ItemConstants.ESCAPE_ROPE);
+        allowedItems.allowRange(ItemConstants.X_ITEMS_START, ItemConstants.X_ITEMS_END, false);
+        allowedItems.allowRange(ItemConstants.ESCAPE_ITEMS_START + 1, ItemConstants.ESCAPE_ITEMS_END, false); // allow first escape item but not the copies
+        allowedItems.allowSingles(false, ItemConstants.MAX_MUSHROOM); // omniboost item ???
+        allowedItems.allowRange(ItemConstants.CHEAP_TREASURES_START, ItemConstants.CHEAP_TREASURES_END, false);
+        allowedItems.allowSingles(false, ItemConstants.RARE_BONE); // reenable rare bone (between cheap treasures)
+        allowedItems.allowRange(ItemConstants.MULCH_START, ItemConstants.MULCH_END, false);
+        allowedItems.allowRange(ItemConstants.APRICORN_START, ItemConstants.APRICORN_END, false);
+        allowedItems.allowRange(ItemConstants.MISC_SPECIFIC_START, ItemConstants.MISC_SPECIFIC_END, false);
+        allowedItems.allowRange(ItemConstants.MAIL_START, ItemConstants.MAIL_END, false);
+        allowedItems.allowRange(ItemConstants.SWEET_START, ItemConstants.SWEET_END, false); // milcery alcremie items, don't work
+        allowedItems.allowRange(ItemConstants.NECTARS_START, ItemConstants.NECTARS_END, false);
+        allowedItems.allowRange(ItemConstants.INCENSE_START, ItemConstants.INCENSE_END, false); // worse plates
+        allowedItems.allowRange(ItemConstants.CONTEST_SCARVES_START, ItemConstants.CONTEST_SCARVES_END, false);
+        allowedItems.allowRange(ItemConstants.EV_MODIFIERS_START, ItemConstants.EV_MODIFIERS_END, false);
+        allowedItems.allowSingles(false, ItemConstants.CORNN_BERRY, ItemConstants.WEPEAR_BERRY);
+        allowedItems.allowRange(ItemConstants.MAGOST_BERRY, ItemConstants.BELUE_BERRY, false);
+        allowedItems.allowRange(ItemConstants.HMS_START, ItemConstants.HMS_END, false);
+        allowedItems.allowRange(ItemConstants.CHARMS_START, ItemConstants.CHARMS_END, false);
+        allowedItems.allowRange(ItemConstants.FORM_CHANGE_START, ItemConstants.FORM_CHANGE_END, false);
+        allowedItems.allowRange(ItemConstants.GENERAL_KEY_ITEMS_START, ItemConstants.GENERAL_KEY_ITEMS_END, false);
+        allowedItems.allowSingles(false, ItemConstants.GIMMIGHOUL_COIN);
+        allowedItems.allowRange(ItemConstants.SCROLLS_TERA_ORB_START, ItemConstants.SCROLLS_TERA_ORB_END, false);
+        allowedItems.allowSingles(false, ItemConstants.TINY_BAMBOO_SHOOT);
+        allowedItems.allowRange(ItemConstants.TERA_SHARD_START, ItemConstants.TERA_SHARD_END, false);
+        allowedItems.allowRange(ItemConstants.GEN_4_FORM_START, ItemConstants.GEN_4_FORM_END, false);
+        allowedItems.allowRange(ItemConstants.MASKS_START, ItemConstants.MASKS_END, false);
+        allowedItems.allowRange(ItemConstants.GEN_9_STAT_START, ItemConstants.GEN_9_STAT_END, false);
+        allowedItems.allowSingles(false, ItemConstants.GLIMMERING_CHARM);
+        allowedItems.allowRange(ItemConstants.GEN_9_MEDICINE_START, ItemConstants.GEN_9_MEDICINE_END, false);
+        allowedItems.allowRange(ItemConstants.SPEEDCHOICE_START, ItemConstants.SPEEDCHOICE_END, false);
+        allowedItems.allowSingles(false, ItemConstants.PIKASHUNIUM_Z);
+
+        // allowedItems.banRange(ItemConstants.TMS_START, (ItemConstants.TMS_END - ItemConstants.TMS_START) + 1);
+        // allowedItems.banRange(ItemConstants.HMS_START, (ItemConstants.HMS_END - ItemConstants.HMS_START) + 1);
+        // allowedItems.banRange(ItemConstants.UNUSED_TM_START, (ItemConstants.UNUSED_TM_END - ItemConstants.UNUSED_TM_START) + 1);
+        // allowedItems.banRange(ItemConstants.GENERAL_KEY_ITEMS_START, (ItemConstants.GENERAL_KEY_ITEMS_END - ItemConstants.GENERAL_KEY_ITEMS_START) + 1);
+        // allowedItems.banRange(ItemConstants.SPEEDCHOICE_START, (ItemConstants.SPEEDCHOICE_END - ItemConstants.SPEEDCHOICE_START) + 1);
 
         nonBadItems = allowedItems.copy();
-        nonBadItems.banSingles(ItemConstants.DYNAMAX_CANDY);
-        nonBadItems.banRange(ItemConstants.MULCH_START, (ItemConstants.MULCH_END - ItemConstants.MULCH_START) + 1);
-        nonBadItems.banRange(ItemConstants.APRICORN_START, (ItemConstants.APRICORN_END - ItemConstants.APRICORN_START) + 1);
-        nonBadItems.banRange(ItemConstants.MISC_SPECIFIC_START, (ItemConstants.MISC_SPECIFIC_END - ItemConstants.MISC_SPECIFIC_START) + 1);
-        nonBadItems.banRange(ItemConstants.MAIL_START, (ItemConstants.MAIL_END - ItemConstants.MAIL_START) + 1);
-        nonBadItems.banRange(ItemConstants.NECTARS_START, (ItemConstants.NECTARS_END - ItemConstants.NECTARS_START) + 1);
-        nonBadItems.banRange(ItemConstants.CONTEST_SCARVES_START, (ItemConstants.CONTEST_SCARVES_END - ItemConstants.CONTEST_SCARVES_START) + 1);
-        // nonBadItems.banRange(ItemConstants.BERRIES_START, (ItemConstants.BERRIES_END - ItemConstants.BERRIES_START) + 1);
-        // Berries that have no effect in battle
-        nonBadItems.banSingles(ItemConstants.CORNN_BERRY, ItemConstants.WEPEAR_BERRY, ItemConstants.MAGOST_BERRY,
-                ItemConstants.RABUTA_BERRY, ItemConstants.NOMEL_BERRY, ItemConstants.SPELON_BERRY,
-                ItemConstants.PAMTRE_BERRY, ItemConstants.WATMEL_BERRY, ItemConstants.DURIN_BERRY,
-                ItemConstants.BELUE_BERRY);
-        // Ban items where the effect doesn't work
-        nonBadItems.banSingles(ItemConstants.AUX_EVASION, ItemConstants.AUX_GUARD, ItemConstants.AUX_POWER,
-                ItemConstants.POWERGUARD, ItemConstants.CHOICE_DUMPLING, ItemConstants.SWAP_SNACK, ItemConstants.SPICED_RADISH);
-
-        // I'm not sure that cap pikachu will even be generated
-        nonBadItems.banSingles(ItemConstants.PIKASHUNIUM_Z);
+        // nonBadItems.banSingles(ItemConstants.DYNAMAX_CANDY);
+        // nonBadItems.banRange(ItemConstants.MULCH_START, (ItemConstants.MULCH_END - ItemConstants.MULCH_START) + 1);
+        // nonBadItems.banRange(ItemConstants.APRICORN_START, (ItemConstants.APRICORN_END - ItemConstants.APRICORN_START) + 1);
+        // nonBadItems.banRange(ItemConstants.MISC_SPECIFIC_START, (ItemConstants.MISC_SPECIFIC_END - ItemConstants.MISC_SPECIFIC_START) + 1);
+        // nonBadItems.banRange(ItemConstants.MAIL_START, (ItemConstants.MAIL_END - ItemConstants.MAIL_START) + 1);
+        // nonBadItems.banRange(ItemConstants.NECTARS_START, (ItemConstants.NECTARS_END - ItemConstants.NECTARS_START) + 1);
+        // nonBadItems.banRange(ItemConstants.CONTEST_SCARVES_START, (ItemConstants.CONTEST_SCARVES_END - ItemConstants.CONTEST_SCARVES_START) + 1);
+        // // nonBadItems.banRange(ItemConstants.BERRIES_START, (ItemConstants.BERRIES_END - ItemConstants.BERRIES_START) + 1);
+        // // Berries that have no effect in battle
+        // nonBadItems.banSingles(ItemConstants.CORNN_BERRY, ItemConstants.WEPEAR_BERRY, ItemConstants.MAGOST_BERRY,
+        //         ItemConstants.RABUTA_BERRY, ItemConstants.NOMEL_BERRY, ItemConstants.SPELON_BERRY,
+        //         ItemConstants.PAMTRE_BERRY, ItemConstants.WATMEL_BERRY, ItemConstants.DURIN_BERRY,
+        //         ItemConstants.BELUE_BERRY);
+        // // Ban items where the effect doesn't work
+        // nonBadItems.banSingles(ItemConstants.AUX_EVASION, ItemConstants.AUX_GUARD, ItemConstants.AUX_POWER,
+        //         ItemConstants.POWERGUARD, ItemConstants.CHOICE_DUMPLING, ItemConstants.SWAP_SNACK, ItemConstants.SPICED_RADISH);
+        //
+        // // I'm not sure that cap pikachu will even be generated
+        // nonBadItems.banSingles(ItemConstants.PIKASHUNIUM_Z);
 
         // Some items (like z items or berries) are super common which means randomly selecting from the items list
         // will usually return those, By dividing items into categories we can get a better distrobution
-        List<int[]> itemTypeRanges = getItemTypeRanges();
-
-        allowedItems.configureGroups(itemTypeRanges);
-        nonBadItems.configureGroups(itemTypeRanges);
+        // List<int[]> itemTypeRanges = getItemTypeRanges();
+        //
+        // allowedItems.configureGroups(itemTypeRanges);
+        // nonBadItems.configureGroups(itemTypeRanges);
     }
 
     public static List<int[]> getItemTypeRanges() {
@@ -375,9 +415,9 @@ public class EmeraldEXConstants {
         itemTypeRanges.add(new int[]{ItemConstants.BERRIES_START, ItemConstants.BERRIES_END});
         itemTypeRanges.add(new int[]{ItemConstants.TMS_START, ItemConstants.TMS_END});
         itemTypeRanges.add(new int[]{ItemConstants.HMS_START, ItemConstants.HMS_END});
-        itemTypeRanges.add(new int[]{ItemConstants.CHARMS_START, ItemConstants.CHARMS_END});
-        itemTypeRanges.add(new int[]{ItemConstants.FORM_CHANGE_START, ItemConstants.FORM_CHANGE_END});
-        itemTypeRanges.add(new int[]{ItemConstants.GENERAL_KEY_ITEMS_START, ItemConstants.GENERAL_KEY_ITEMS_END});
+        // itemTypeRanges.add(new int[]{ItemConstants.CHARMS_START, ItemConstants.CHARMS_END});
+        // itemTypeRanges.add(new int[]{ItemConstants.FORM_CHANGE_START, ItemConstants.FORM_CHANGE_END});
+        // itemTypeRanges.add(new int[]{ItemConstants.GENERAL_KEY_ITEMS_START, ItemConstants.GENERAL_KEY_ITEMS_END});
         itemTypeRanges.add(new int[]{ItemConstants.GEN_9_BATTLE_START, ItemConstants.GEN_9_BATTLE_END});
         itemTypeRanges.add(new int[]{ItemConstants.TERA_SHARD_START, ItemConstants.TERA_SHARD_END});
         itemTypeRanges.add(new int[]{ItemConstants.GEN_9_EVO_FORM_START, ItemConstants.GEN_9_EVO_FORM_END});
@@ -697,6 +737,7 @@ public class EmeraldEXConstants {
         public static final int BALLS_END = 27;
 
         public static final int MEDICINE_START = 28;
+        public static final int BERRY_JUICE = 53;
         public static final int MEDICINE_END = 56;
 
         public static final int SPECIALTIES_START = 57;
@@ -734,10 +775,16 @@ public class EmeraldEXConstants {
         public static final int X_ITEMS_END = 126;
 
         public static final int ESCAPE_ITEMS_START = 129;
-        public static final int ESCAPE_ITEMS_END = 132;
+        public static final int ESCAPE_ITEMS_END = 131;
+
+        public static final int MAX_MUSHROOM = 132;
 
         public static final int TREASURE_START = 133;
         public static final int TREASURE_END = 164;
+
+        public static final int CHEAP_TREASURES_START = 146;
+        public static final int RARE_BONE = 154;
+        public static final int CHEAP_TREASURES_END = 157;
 
         public static final int FOSSIL_START = 165;
         public static final int FOSSIL_END = 179;
@@ -756,6 +803,8 @@ public class EmeraldEXConstants {
         public static final int MAIL_END = 210;
 
         public static final int EVO_START = 211;
+        public static final int SWEET_START = 238;
+        public static final int SWEET_END = 244;
         public static final int EVO_END = 245;
 
         public static final int NECTARS_START = 246;
@@ -836,16 +885,29 @@ public class EmeraldEXConstants {
         public static final int GENERAL_KEY_ITEMS_END = 757;
 
         public static final int GEN_9_BATTLE_START = 758;
-        public static final int GEN_9_BATTLE_END = 773;
+        public static final int GIMMIGHOUL_COIN = 766;
+        public static final int GEN_9_BATTLE_END = 769;
+
+        public static final int SCROLLS_TERA_ORB_START = 770;
+        public static final int SCROLLS_TERA_ORB_END = 772;
+
+        public static final int TINY_BAMBOO_SHOOT = 773;
 
         public static final int TERA_SHARD_START = 774;
         public static final int TERA_SHARD_END = 791;
 
+        public static final int GEN_4_FORM_START = 792;
+        public static final int GEN_4_FORM_END = 794;
+
         public static final int GEN_9_EVO_FORM_START = 795;
+        public static final int MASKS_START = 803;
+        public static final int MASKS_END = 805;
         public static final int GEN_9_EVO_FORM_END = 805;
 
-        public static final int GEN_9_STAT_START = 795;
-        public static final int GEN_9_STAT_END = 815;
+        public static final int GEN_9_STAT_START = 806;
+        public static final int GEN_9_STAT_END = 812;
+
+        public static final int GLIMMERING_CHARM = 813;
 
         public static final int GEN_9_MEDICINE_START = 816;
         public static final int GEN_9_MEDICINE_END = 827;

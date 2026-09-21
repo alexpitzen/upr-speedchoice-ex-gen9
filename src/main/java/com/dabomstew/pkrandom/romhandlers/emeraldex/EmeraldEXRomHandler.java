@@ -2152,27 +2152,30 @@ public class EmeraldEXRomHandler extends AbstractGBRomHandler {
 
             Collections.shuffle(newItems, this.random);
 
-            if (allMartsHaveBallAndRepel) {
-                newItems.set(0, possibleItems.randomRepel(this.random));
-                newItems.set(1,  possibleItems.randomBall(this.random));
-            } else {
-                if (random.nextBoolean() && random.nextBoolean()) {
-                    newItems.set(0, possibleItems.randomRepel(this.random));
-                }
-                if (random.nextBoolean()) {
-                    newItems.set(1, possibleItems.randomBall(this.random));
-                }
-            }
+            // Always have 1 random ball
+            newItems.set(1,  possibleItems.randomBall(this.random));
+            // if (allMartsHaveBallAndRepel) {
+            //     newItems.set(0, possibleItems.randomRepel(this.random));
+            //     newItems.set(1,  possibleItems.randomBall(this.random));
+            // } else {
+            //     if (random.nextBoolean() && random.nextBoolean()) {
+            //         newItems.set(0, possibleItems.randomRepel(this.random));
+            //     }
+            //     if (random.nextBoolean()) {
+            //         newItems.set(1, possibleItems.randomBall(this.random));
+            //     }
+            // }
 
-            if (newItems.size() >= 4) {
-                if (random.nextBoolean()) {
-                    newItems.set(2, possibleItems.randomMedicine(this.random));
-                }
-
-                if (random.nextBoolean() && random.nextBoolean()) {
-                    newItems.set(3, possibleItems.randomXItem(this.random));
-                }
-            }
+            // No random medicine / x item
+            // if (newItems.size() >= 4) {
+            //     if (random.nextBoolean()) {
+            //         newItems.set(2, possibleItems.randomMedicine(this.random));
+            //     }
+            //
+            //     if (random.nextBoolean() && random.nextBoolean()) {
+            //         newItems.set(3, possibleItems.randomXItem(this.random));
+            //     }
+            // }
             Collections.shuffle(newItems, this.random);
 
 
