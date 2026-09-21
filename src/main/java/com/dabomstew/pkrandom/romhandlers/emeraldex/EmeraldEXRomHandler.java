@@ -2008,6 +2008,7 @@ public class EmeraldEXRomHandler extends AbstractGBRomHandler {
 
         for (ItemLocationInner il : itemOffs) {
             int itemHere = readWord(il.offset);
+            // TODO: this is never true because tms aren't set up
             if (getAllowedItems().isTM(itemHere)) {
                 int thisTM = itemHere - EmeraldEXConstants.tmItemOffset + 1;
                 // hack for repeat TMs

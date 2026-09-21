@@ -46,6 +46,22 @@ public class GlobalConstants {
     // Defeatist, Slow Start, Truant, Forecast, Zen Mode, Klutz
     // To test: Illusion, Imposter
 
+    public static final List<Integer> restrictedAbilities = Arrays.asList(
+        210, //battle bond
+        209, //disguise
+        59, //forecast
+        241, //gulp missile
+        248, //ice face
+        121, //multitype
+        211, //power construct
+        225, //rks system
+        208, //schooling
+        197, //shields down
+        176, //stance change
+        161, //zen mode
+        278 //zero to hero
+    );
+
     public static final int WONDER_GUARD_INDEX = 25;
 
     public static final int MIN_DAMAGING_MOVE_POWER = 50;

@@ -76,25 +76,32 @@ public class ItemList {
     }
 
     public int randomItem(Random random) {
-        int group = random.nextInt(groups.size());
-        int[] groupRange = groups.get(group);
-        int chosen = 0;
-        while (!items[chosen]) {
-            chosen = randomInGroup(random, groupRange);
-        }
-        return chosen;
+        int item;
+        do {
+            item = random.nextInt(items.length + 1);
+        } while (!items[item]);
+        return item;
+        // int group = random.nextInt(groups.size());
+        // int[] groupRange = groups.get(group);
+        // int chosen = 0;
+        // while (!items[chosen]) {
+        //     chosen = randomInGroup(random, groupRange);
+        // }
+        // return chosen;
     }
 
     public int randomNonTM(Random random) {
-        int group = random.nextInt(groups.size());
-        int[] groupRange = groups.get(group);
-        int chosen = 0;
-        while (!items[chosen] || tms[chosen]) {
-            chosen = randomInGroup(random, groupRange);
-        }
-        return chosen;
+        return randomItem(random);
+        // int group = random.nextInt(groups.size());
+        // int[] groupRange = groups.get(group);
+        // int chosen = 0;
+        // while (!items[chosen] || tms[chosen]) {
+        //     chosen = randomInGroup(random, groupRange);
+        // }
+        // return chosen;
     }
 
+    // TODO: unused
     public int randomTM(Random random) {
         int chosen = 0;
         while (!tms[chosen]) {

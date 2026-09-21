@@ -466,6 +466,8 @@ public abstract class AbstractRomHandler implements RomHandler {
             bannedAbilities.addAll(negativeAbilities());
         }
 
+        bannedAbilities.addAll(GlobalConstants.restrictedAbilities);
+
         final int maxAbility = this.highestAbilityIndex();
 
         if (evolutionSanity) {
@@ -476,21 +478,32 @@ public abstract class AbstractRomHandler implements RomHandler {
                 if (pk.getAbility1() != GlobalConstants.WONDER_GUARD_INDEX
                         && pk.getAbility2() != GlobalConstants.WONDER_GUARD_INDEX
                         && pk.getAbility3() != GlobalConstants.WONDER_GUARD_INDEX) {
+                    int orig1 = pk.getAbility1();
+                    int orig2 = pk.getAbility2();
+                    int orig3 = pk.getAbility3();
                     // Pick first ability
                     pk.setAbility1(pickRandomAbility(maxAbility, bannedAbilities));
 
-                    // Second ability?
-                    if (AbstractRomHandler.this.random.nextDouble() < 0.5) {
-                        // Yes, second ability
-                        pk.setAbility2(pickRandomAbility(maxAbility, bannedAbilities, pk.getAbility1()));
-                    } else {
-                        // Nope
-                        pk.setAbility2(0);
-                    }
+                    // Always have 2nd ability
+                    pk.setAbility2(pickRandomAbility(maxAbility, bannedAbilities, pk.getAbility1()));
+                    // // Second ability?
+                    // if (AbstractRomHandler.this.random.nextDouble() < 0.5) {
+                    //     // Yes, second ability
+                    //     pk.setAbility2(pickRandomAbility(maxAbility, bannedAbilities, pk.getAbility1()));
+                    // } else {
+                    //     // Nope
+                    //     pk.setAbility2(0);
+                    // }
 
                     // Third ability?
                     if (hasDWAbilities) {
-                        pk.setAbility3(pickRandomAbility(maxAbility, bannedAbilities, pk.getAbility1(), pk.getAbility2()));
+                        Optional<Integer> restrictedSignatureAbility = GlobalConstants.restrictedAbilities.stream().filter(a -> a == orig1 || a == orig2 || a == orig3).findFirst();
+
+                        if (restrictedSignatureAbility.isPresent()) {
+                            pk.setAbility3(restrictedSignatureAbility.get());
+                        } else {
+                            pk.setAbility3(pickRandomAbility(maxAbility, bannedAbilities, pk.getAbility1(), pk.getAbility2()));
+                        }
                     }
                 }
             }, (evFrom, evTo, toMonIsFinalEvo) -> {
@@ -513,21 +526,32 @@ public abstract class AbstractRomHandler implements RomHandler {
                 if (pk.getAbility1() != GlobalConstants.WONDER_GUARD_INDEX
                         && pk.getAbility2() != GlobalConstants.WONDER_GUARD_INDEX
                         && pk.getAbility3() != GlobalConstants.WONDER_GUARD_INDEX) {
+                    int orig1 = pk.getAbility1();
+                    int orig2 = pk.getAbility2();
+                    int orig3 = pk.getAbility3();
                     // Pick first ability
                     pk.setAbility1(this.pickRandomAbility(maxAbility, bannedAbilities));
 
-                    // Second ability?
-                    if (this.random.nextDouble() < 0.5) {
-                        // Yes, second ability
-                        pk.setAbility2(this.pickRandomAbility(maxAbility, bannedAbilities, pk.getAbility1()));
-                    } else {
-                        // Nope
-                        pk.setAbility2(0);
-                    }
+                    // Always have 2nd ability
+                    pk.setAbility2(this.pickRandomAbility(maxAbility, bannedAbilities, pk.getAbility1()));
+                    // // Second ability?
+                    // if (this.random.nextDouble() < 0.5) {
+                    //     // Yes, second ability
+                    //     pk.setAbility2(this.pickRandomAbility(maxAbility, bannedAbilities, pk.getAbility1()));
+                    // } else {
+                    //     // Nope
+                    //     pk.setAbility2(0);
+                    // }
 
                     // Third ability?
                     if (hasDWAbilities) {
-                        pk.setAbility3(pickRandomAbility(maxAbility, bannedAbilities, pk.getAbility1(), pk.getAbility2()));
+                        Optional<Integer> restrictedSignatureAbility = GlobalConstants.restrictedAbilities.stream().filter(a -> a == orig1 || a == orig2 || a == orig3).findFirst();
+
+                        if (restrictedSignatureAbility.isPresent()) {
+                            pk.setAbility3(restrictedSignatureAbility.get());
+                        } else {
+                            pk.setAbility3(pickRandomAbility(maxAbility, bannedAbilities, pk.getAbility1(), pk.getAbility2()));
+                        }
                     }
                 }
             }
