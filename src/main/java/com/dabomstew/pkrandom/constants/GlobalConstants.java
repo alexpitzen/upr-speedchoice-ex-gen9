@@ -51,6 +51,7 @@ public class GlobalConstants {
         209, //disguise
         59, //forecast
         241, //gulp missile
+        258, //hunger switch
         248, //ice face
         121, //multitype
         211, //power construct
@@ -58,6 +59,9 @@ public class GlobalConstants {
         208, //schooling
         197, //shields down
         176, //stance change
+        307, //tera shift
+        308, //tera shell
+        309, //teraform zero
         161, //zen mode
         278 //zero to hero
     );
