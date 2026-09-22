@@ -2868,6 +2868,7 @@ public abstract class AbstractRomHandler implements RomHandler {
         return canPick.get(this.random.nextInt(canPick.size()));
     }
 
+    // TODO: unused
     private static double getProbability(boolean preferSameType, Move mv, Pokemon pkmn) {
         double probability = 0.5;
         if (preferSameType) {
@@ -3325,11 +3326,19 @@ public abstract class AbstractRomHandler implements RomHandler {
         pickFrom = pickFrom.stream().filter(Objects::nonNull).collect(Collectors.toList());
 
         if (usePowerLevels && current != null) {
-            // start with within 10% and add 5% either direction till we find
-            // something
             int currentBST = current.bstForPowerLevels();
-            int minTarget = currentBST - currentBST / 10;
-            int maxTarget = currentBST + currentBST / 10;
+            if (current.getNumber() == 289) {
+                // Slaking BST is 670; let's tone his BST randomization down a bit
+                // to account for truant
+                currentBST = 570;
+            }
+            // start with within 10% and add 5% either direction till we find something
+            // changing this to bst<start<+20%
+
+            // int minTarget = currentBST - currentBST / 10;
+            int minTarget = currentBST;
+            // int maxTarget = currentBST + currentBST / 10;
+            int maxTarget = currentBST + currentBST / 5;
             List<Pokemon> canPick = new ArrayList<>();
             int expandRounds = 0;
             while (canPick.isEmpty() || (canPick.size() < 3 && expandRounds < 2)) {
