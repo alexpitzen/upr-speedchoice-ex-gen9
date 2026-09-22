@@ -71,37 +71,37 @@ public class GlobalConstants {
     // Maps pokemon number to move number
     public static final Map<Integer, Integer> monEvoRequiresMove = Map.ofEntries(
         // Ancient Power 	Tangela, Yanma, Piloswine 	Tangrowth, Yanmega, Mamoswine 	Generation IV
-        entry(114, 246),
-        entry(193, 246),
-        entry(221, 246),
+        entry(143, 246),
+        entry(247, 246),
+        entry(283, 246),
         // Barb Barrage 	Hisuian Qwilfish 	Overqwil 	Generation VIII
-        entry(998, 767),
+        entry(269, 767),
         // Double Hit 	Aipom 	Ambipom 	Generation IV
-        entry(190, 458),
+        entry(243, 458),
         // Dragon Cheer 	Dipplin 	Hydrapple 	Generation IX
-        entry(1408,841),
+        entry(932,841),
         // Dragon Pulse 	Poipole 	Naganadel 	Generation VII
-        entry(803,406),
+        entry(892,406),
         // Hyper Drill 	Dunsparce 	Dudunsparce 	Generation IX
-        entry(206,813),
+        entry(263,813),
         // Mimic 	Bonsly, Mime Jr. 	Sudowoodo, Mr. Mime 	Generation IV
-        entry(438,102),
-        entry(439,102),
+        entry(238,102),
+        entry(154,102),
         // Psyshield Bash 	Stantler 	Wyrdeer 	Generation VIII
-        entry(234,756),
+        entry(298,756),
         // Rage Fist 	Primeape 	Annihilape 	Generation IX
-        entry(57,815),
+        entry(69,815),
         // Rollout 	Lickitung 	Lickilicky 	Generation IV
-        entry(108,205),
+        entry(133,205),
         // Stomp 	Steenee 	Tsareena 	Generation VII
-        entry(762,23),
+        entry(848,23),
         // Taunt 	Clobbopus 	Grapploct 	Generation VIII
-        entry(852,269),
+        entry(944,269),
         // Twin Beam 	Girafarig 	Farigiraf 	Generation IX
-        entry(203,814),
+        entry(259,814),
         // Any Fairy-type move 	Eevee 	Sylveon* 	Generation VI
         // recoil moves (just use wave crash) - basculin white stripe
-        entry(1091,762)
+        entry(616,762)
     );
 
     public static final int WONDER_GUARD_INDEX = 25;

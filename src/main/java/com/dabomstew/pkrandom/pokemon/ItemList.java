@@ -64,6 +64,7 @@ public class ItemList {
         }
     }
 
+    // unused
     public void tmRange(int startIndex, int length) {
         for (int i = 0; i < length; i++) {
             tms[i + startIndex] = true;
@@ -78,7 +79,7 @@ public class ItemList {
     public int randomItem(Random random) {
         int item;
         do {
-            item = random.nextInt(items.length + 1);
+            item = random.nextInt(items.length);
         } while (!items[item]);
         return item;
         // int group = random.nextInt(groups.size());
