@@ -510,9 +510,18 @@ public abstract class AbstractRomHandler implements RomHandler {
                 if (evTo.getAbility1() != GlobalConstants.WONDER_GUARD_INDEX
                         && evTo.getAbility2() != GlobalConstants.WONDER_GUARD_INDEX
                         && evTo.getAbility3() != GlobalConstants.WONDER_GUARD_INDEX) {
+                    int orig1 = evTo.getAbility1();
+                    int orig2 = evTo.getAbility2();
+                    int orig3 = evTo.getAbility3();
                     evTo.setAbility1(evFrom.getAbility1());
                     evTo.setAbility2(evFrom.getAbility2());
-                    evTo.setAbility3(evFrom.getAbility3());
+                    Optional<Integer> restrictedSignatureAbility = GlobalConstants.restrictedAbilities.stream().filter(a -> a == orig1 || a == orig2 || a == orig3).findFirst();
+
+                    if (restrictedSignatureAbility.isPresent()) {
+                        evTo.setAbility3(restrictedSignatureAbility.get());
+                    } else {
+                        evTo.setAbility3(evFrom.getAbility3());
+                    }
                 }
             });
         } else {
@@ -3327,10 +3336,10 @@ public abstract class AbstractRomHandler implements RomHandler {
 
         if (usePowerLevels && current != null) {
             int currentBST = current.bstForPowerLevels();
-            if (current.getNumber() == 289) {
+            if (current.getSpeciesNumber() == 289) {
                 // Slaking BST is 670; let's tone his BST randomization down a bit
                 // to account for truant
-                currentBST = 570;
+                currentBST = 560;
             }
             // start with within 10% and add 5% either direction till we find something
             // changing this to bst<start<+20%
