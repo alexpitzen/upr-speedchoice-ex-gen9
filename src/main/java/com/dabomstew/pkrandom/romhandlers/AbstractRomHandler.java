@@ -1574,8 +1574,8 @@ public abstract class AbstractRomHandler implements RomHandler {
 
                 // If a pokemon requires a move to evolve, make sure it learns it
                 // The "reorder damaging moves" setting will put it in a good place
-                if (i == 0 && GlobalConstants.monEvoRequiresMove.containsKey(pkmn.getNumber())) {
-                    int moveNum = GlobalConstants.monEvoRequiresMove.get(pkmn.getNumber());
+                if (i == 0 && GlobalConstants.monEvoRequiresMove.containsKey(pkmn.getSpeciesNumber())) {
+                    int moveNum = GlobalConstants.monEvoRequiresMove.get(pkmn.getSpeciesNumber());
 
                     // write it
                     moves.get(i).setMove(moveNum);

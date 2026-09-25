@@ -9,14 +9,23 @@ public class GlobalConstants {
 
     public static final List<Integer> bannedRandomMoves = Arrays.asList(
             144,   // Transform, glitched in RBY
-            165  // Struggle, self explanatory
+            165,  // Struggle, self explanatory
+            138, // Dream Eater
+            173, // Snore
+            132, // Constrict, overly weak
+            39,// Sonicboom
+            82,// Dragon Rage
+            32,// Horn Drill
+            12,// Guillotine
+            90,// Fissure
+            329, // Sheer Cold
+            621, // Hyperspace Fury, fails is anything other than hoopa uses it
+            711 // Aura Wheel, as it only works properly with morpeko
     );
 
     public static final List<Integer> bannedForDamagingMove = Arrays.asList(
             120, // SelfDestruct
-            138, // Dream Eater
             153, // Explosion
-            173, // Snore
             206, // False Swipe
             248, // Future Sight
             252, // Fake Out
@@ -29,16 +38,18 @@ public class GlobalConstants {
             99,// Rage, lock-in in gen1
             205, // Rollout, lock-in
             301, // Ice Ball, Rollout clone
-            39,// Sonicboom
-            82,// Dragon Rage
-            32,// Horn Drill
-            12,// Guillotine
-            90,// Fissure
-            329, // Sheer Cold
-            621, // Hyperspace Fury, fails is anything other than hoopa uses it
-            711 // Aura Wheel, as it only works properly with morpeko
+            // moves that are fully banned anyway
+            // 173, // Snore
+            // 138, // Dream Eater
+            // 39,// Sonicboom
+            // 82,// Dragon Rage
+            // 32,// Horn Drill
+            // 12,// Guillotine
+            // 90,// Fissure
+            // 329, // Sheer Cold
+            730 // Misty Explosion
     );
-    
+
     /* @formatter:on */
 
     public static final List<Integer> battleTrappingAbilities = Arrays.asList(23, 42, 71);
@@ -68,40 +79,46 @@ public class GlobalConstants {
         278 //zero to hero
     );
 
-    // Maps pokemon number to move number
+    // Maps pokemon species number to move number
     public static final Map<Integer, Integer> monEvoRequiresMove = Map.ofEntries(
         // Ancient Power 	Tangela, Yanma, Piloswine 	Tangrowth, Yanmega, Mamoswine 	Generation IV
-        entry(143, 246),
-        entry(247, 246),
-        entry(283, 246),
+        entry(114, 246),
+        entry(193, 246),
+        entry(221, 246),
         // Barb Barrage 	Hisuian Qwilfish 	Overqwil 	Generation VIII
-        entry(269, 767),
+        entry(998, 767),
         // Double Hit 	Aipom 	Ambipom 	Generation IV
-        entry(243, 458),
+        entry(190, 458),
         // Dragon Cheer 	Dipplin 	Hydrapple 	Generation IX
-        entry(932,841),
+        entry(1408,841),
         // Dragon Pulse 	Poipole 	Naganadel 	Generation VII
-        entry(892,406),
+        entry(803,406),
         // Hyper Drill 	Dunsparce 	Dudunsparce 	Generation IX
-        entry(263,813),
+        entry(206,813),
         // Mimic 	Bonsly, Mime Jr. 	Sudowoodo, Mr. Mime 	Generation IV
-        entry(238,102),
-        entry(154,102),
+        entry(438,102),
+        entry(439,102),
         // Psyshield Bash 	Stantler 	Wyrdeer 	Generation VIII
-        entry(298,756),
+        entry(234,756),
         // Rage Fist 	Primeape 	Annihilape 	Generation IX
-        entry(69,815),
+        entry(57,815),
         // Rollout 	Lickitung 	Lickilicky 	Generation IV
-        entry(133,205),
+        entry(108,205),
         // Stomp 	Steenee 	Tsareena 	Generation VII
-        entry(848,23),
+        entry(762,23),
         // Taunt 	Clobbopus 	Grapploct 	Generation VIII
-        entry(944,269),
+        entry(852,269),
         // Twin Beam 	Girafarig 	Farigiraf 	Generation IX
-        entry(259,814),
+        entry(203,814),
         // Any Fairy-type move 	Eevee 	Sylveon* 	Generation VI
         // recoil moves (just use wave crash) - basculin white stripe
-        entry(616,762)
+        entry(1091,762),
+        // Morpeko aura wheel (not an evo but let him have it)
+        entry(877, 711),
+        entry(1226, 711),
+        // Let hoopa confined have hyperspace hole & hoopa unbound have hyperspace fury
+        entry(720, 593),
+        entry(1168, 621)
     );
 
     public static final int WONDER_GUARD_INDEX = 25;
