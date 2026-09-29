@@ -330,7 +330,8 @@ public class EmeraldEXConstants {
         allowedItems.allowRange(ItemConstants.INCENSE_START, ItemConstants.INCENSE_END, false); // worse plates
         allowedItems.allowRange(ItemConstants.CONTEST_SCARVES_START, ItemConstants.CONTEST_SCARVES_END, false);
         allowedItems.allowRange(ItemConstants.EV_MODIFIERS_START, ItemConstants.EV_MODIFIERS_END, false);
-        allowedItems.allowSingles(false, ItemConstants.CORNN_BERRY, ItemConstants.WEPEAR_BERRY);
+        allowedItems.allowSingles(false, ItemConstants.CORNN_BERRY);
+        allowedItems.allowRange(ItemConstants.POKEBLOCK_BERRY_START, ItemConstants.POKEBLOCK_BERRY_END, false);
         allowedItems.allowRange(ItemConstants.MAGOST_BERRY, ItemConstants.BELUE_BERRY, false);
         allowedItems.allowRange(ItemConstants.HMS_START, ItemConstants.HMS_END, false);
         allowedItems.allowRange(ItemConstants.CHARMS_START, ItemConstants.CHARMS_END, false);
@@ -772,7 +773,7 @@ public class EmeraldEXConstants {
         public static final int ESCAPE_ROPE = 120;
 
         public static final int X_ITEMS_START = 121;
-        public static final int X_ITEMS_END = 126;
+        public static final int X_ITEMS_END = 128;
 
         public static final int ESCAPE_ITEMS_START = 129;
         public static final int ESCAPE_ITEMS_END = 131;
@@ -856,7 +857,6 @@ public class EmeraldEXConstants {
 
         // No battle effect berries
         public static final int CORNN_BERRY = 581;
-        public static final int WEPEAR_BERRY = 532;
         public static final int MAGOST_BERRY = 541;
         public static final int RABUTA_BERRY = 542;
         public static final int NOMEL_BERRY = 543;
@@ -865,6 +865,8 @@ public class EmeraldEXConstants {
         public static final int WATMEL_BERRY = 546;
         public static final int DURIN_BERRY = 547;
         public static final int BELUE_BERRY = 548;
+        public static final int POKEBLOCK_BERRY_START = 529;
+        public static final int POKEBLOCK_BERRY_END = 533;
 
         public static final int TMS_START = 582;
         public static final int TMS_END = 681;

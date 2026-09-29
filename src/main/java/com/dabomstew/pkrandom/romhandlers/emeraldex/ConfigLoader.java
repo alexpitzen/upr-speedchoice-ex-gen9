@@ -38,7 +38,7 @@ public class ConfigLoader {
                             System.err.println("invalid entry " + q);
                             continue;
                         }
-                        
+
                         String key = r[0];
                         String value = getValue(r[1]);
 
